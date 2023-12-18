@@ -1,0 +1,165 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 300vw;
+    height: 40vh;
+}
+
+.product{
+  width: 300vw;
+  height: 60vh;
+}
+
+#category-container  {
+    display: flex;
+    height: 100%;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+#product-container  {
+    display: flex;
+    height: 100%;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+
+.category-card  {
+    background-color: blueviolet;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    margin: 16px;
+}
+
+.product-card {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    justify-content: space-evenly;
+    align-items: center;
+    text-transform: uppercase;
+    margin: 16px;
+    width: 30%;
+    height: 95%;
+    border: 0.5px solid #F0F0F0;
+    align-items: flex-start;
+
+}
+
+#slider-container , #product-slider-container{
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+  }
+
+  #slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .slider-item{
+    flex: 0 0 33.33%; /* Display three items at a time */
+    box-sizing: border-box;
+    padding: 10px;
+  }
+
+  .product-slider-item{
+    flex: 0 0 30%; /* Display three items at a time */
+    box-sizing: border-box;
+    padding: 10px;
+  }
+
+  #prev, #next ,  #prevProduct , #nextProduct {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 70px;
+    color: #333;
+  }
+
+  #prev , #prevProduct { left: 10px; }
+  #next  , #nextProduct{ right: 10px; }
+
+
+  .category-card:nth-child(3n + 1) {
+    background-color: #00FFFF;
+    color: black;
+  }
+
+  .category-card:nth-child(3n + 2) {
+    background-color: #FFC0CB;
+    color: black;
+  }
+
+  .category-card:nth-child(3n + 3) {
+    background-color: #C0F851;
+    color: black;
+  }
+
+  .category-card #myButton{
+    background-color: transparent;
+    border: 2px solid #ffffff; /* Set border color as needed */
+    color: #ffffff; /* Set text color as needed */
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  }
+  .category-card #myButton:hover{
+    background-color: #ffffff; /* Set hover background color as needed */
+    color: #000000; /* Set hover text color as needed */
+    border-color: #000000; /* Set hover border color as needed */
+    cursor: pointer;
+}
+  
+
+.disabled {
+  opacity: 0; /* You can adjust the styling for the disabled state */
+}
+
+#floatingPageContainer {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+#floatingPageContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  width: 70%;
+  height: 70%;
+}
+
+.checked {
+  color: orange;
+}
+
+#floating-product-details-card{
+  position: relative;
+  top: 4%;
+  /* left: 50%; */
+  /* right: 50%; */
+  width: 100%;
+  height: 93%;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="categories.css" />
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div id="floatingPageContainer">
+      <div id="floatingPageContent">
+        <button id="closeFloatingPage" style="cursor: pointer">X</button>
+        <div id="floating-product-details-card">
+          <p>hello</p>
+        </div>
+      </div>
+    </div>
+    <div id="allContainer">
+      <a href="index.html">Back to Home Page</a>
+      <div class="cart" style="position: absolute; right: 25px">
+        <a href="cart.html" style="text-decoration: none; color: black">
+          <i class="fa fa-shopping-cart" style="font-size: 24px"></i>
+          <span id="cart-count" style="font-size: 20px"></span>
+        </a>
+      </div>
+      <div class="container" id="slider-container">
+        <div id="category-container"></div>
+        <div id="prev">&lt;</div>
+        <div id="next">&gt;</div>
+      </div>
+      <div class="product disabled" id="product-slider-container">
+        <div id="product-container"></div>
+        <div id="prevProduct">&lt;</div>
+        <div id="nextProduct">&gt;</div>
+      </div>
+    </div>
+  </body>
+  <script src="categoriesScript.js"></script>
+</html>
