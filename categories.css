@@ -80,7 +80,15 @@
     padding: 10px;
   }
 
-  #prev, #next ,  #prevProduct , #nextProduct {
+  #prev, #next {
+    position: fixed;
+    top: 20%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 70px;
+    color: #333;
+  }
+  #prevProduct , #nextProduct {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -89,8 +97,10 @@
     color: #333;
   }
 
-  #prev , #prevProduct { left: 10px; }
-  #next  , #nextProduct{ right: 10px; }
+  #prev { left: 10px; }
+  #prevProduct { left: 10px; }
+  #next{ right: 10px; }
+  #nextProduct{ right: 10px; }
 
 
   .category-card:nth-child(3n + 1) {

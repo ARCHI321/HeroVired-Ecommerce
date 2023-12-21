@@ -25,17 +25,31 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+function scrollToTargetDiv(targetId, divId) {
+  targetId = targetId.substring(1);
+  var targetDiv = document.getElementById(`${targetId}`);
+  if (targetDiv) {
+    targetDiv.scrollIntoView({ behavior: "smooth" });
+  }
+}
+
+var globalArray = [];
 function createCategoryCard(product) {
   const card = document.createElement("div");
   card.classList.add("category-card");
   card.classList.add("slider-item");
   card.classList.add(`${product}`);
 
+  globalArray.push(`${product}`);
+
+  card.setAttribute("id", `${product}`);
+  var divId = product;
+
   const name = document.createElement("h2");
   name.innerHTML = product;
 
   const desc = document.createElement("p");
-  desc.innerHTML = "Starting ar rs 9";
+  desc.innerHTML = "Starting ar $9";
 
   const button = document.createElement("button");
   button.textContent = "SHOP NOW";
@@ -55,11 +69,7 @@ function createCategoryCard(product) {
       myDiv.style.pointerEvents = "auto";
       flag = 1;
     }
-    // } else {
-    //   // Disable the div
-    //   myDiv.classList.add("disabled");
-    //   myDiv.style.pointerEvents = "none";
-    // }
+
     showFirstThreeProducts(
       event.target.parentNode.classList[
         event.target.parentNode.classList.length - 1
@@ -71,6 +81,9 @@ function createCategoryCard(product) {
   card.appendChild(desc);
   card.appendChild(button);
 
+  if (window.location.hash) {
+    scrollToTargetDiv(window.location.hash.toString(), divId);
+  }
   return card;
 }
 

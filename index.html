@@ -44,8 +44,12 @@
           <p>e-Commerce</p>
         </div>
         <div class="search">
-          <input type="text" placeholder="Search for products" />
-          <button>Search</button>
+          <input
+            id="searchCategory"
+            type="text"
+            placeholder="Search for products"
+          />
+          <button onclick="navigateToTarget(event)">Search</button>
         </div>
         <i class="fas fa-headphones" style="font-size: 24px"></i>
         <div class="call">
@@ -86,4 +90,13 @@
       </div>
     </div>
   </body>
+  <script>
+    function navigateToTarget(e) {
+      e.preventDefault();
+      // Redirect to the target page with the anchor link
+      var category = document.getElementById("searchCategory").value;
+      console.log(category);
+      window.location.href = "categories.html#" + `${category}`;
+    }
+  </script>
 </html>

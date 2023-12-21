@@ -55,12 +55,12 @@ document.addEventListener("DOMContentLoaded", function () {
       "id",
       "quantity" + `${productdata.name.replace(/\s/g, "")}`
     );
-    console.log(productdata.totalPrice);
+    // console.log(productdata.totalPrice);
     totalAmountItem = parseFloat(
       parseInt(totalAmountItem) + parseInt(productdata.totalPrice)
     ).toFixed(2);
-    console.log(totalAmountItem + productdata.totalPrice);
-    console.log(totalAmountItem);
+    // console.log(totalAmountItem + productdata.totalPrice);
+    // console.log(totalAmountItem);
 
     leftSide.appendChild(img);
     leftSide.appendChild(quantityChange);
@@ -99,7 +99,6 @@ function incrementCount(e) {
   var newData = JSON.parse(
     localStorage.getItem(e.target.parentNode.parentNode.parentNode.classList[0])
   );
-  console.log(newData);
   var count = newData.count;
   count += 1;
   newData.count = count;
@@ -139,19 +138,35 @@ function decrementCount(e) {
   var newData = JSON.parse(
     localStorage.getItem(e.target.parentNode.parentNode.parentNode.classList[0])
   );
-  console.log(newData);
   var count = newData.count;
   var prevCount = newData.count;
   if (count > 1) count -= 1;
-  else count = 1;
+  else {
+    var deleteDiv = document.getElementsByClassName(
+      e.target.parentNode.parentNode.parentNode.classList[0]
+    )[0];
+    localStorage.removeItem(
+      e.target.parentNode.parentNode.parentNode.classList[0]
+    );
+    document.getElementById("totalAmount").innerHTML = sumOfPrices();
+    // console.log(deleteDiv);
+    deleteDiv.innerHTML = "";
+    // console.log(e.target.parentNode.parentNode.parentNode.classList[0]);
+
+    return "";
+  }
   newData.count = count;
   localStorage.setItem(
     e.target.parentNode.parentNode.parentNode.classList[0],
     JSON.stringify(newData)
   );
 
-  document.getElementById("input").value = count;
-  document.getElementById("quantity").innerHTML = "Quantity: " + count;
+  document.getElementById(
+    "input" + `${e.target.parentNode.parentNode.parentNode.classList[0]}`
+  ).value = count;
+  document.getElementById(
+    "quantity" + `${e.target.parentNode.parentNode.parentNode.classList[0]}`
+  ).innerHTML = "Quantity: " + count;
 
   var totalPrice = newData.totalPrice;
   var price = newData.price;
@@ -163,14 +178,10 @@ function decrementCount(e) {
     e.target.parentNode.parentNode.parentNode.classList[0],
     JSON.stringify(newData)
   );
-  document.getElementById("price").innerHTML =
-    "Price : " + "$" + newData.totalPrice;
+  document.getElementById(
+    "price" + `${e.target.parentNode.parentNode.parentNode.classList[0]}`
+  ).innerHTML = "Price : " + "$" + newData.totalPrice;
 
-  // console.log(
-  //   e.target.parentNode.parentNode.parentNode.classList[0],
-  //   count,
-  //   totalPrice
-  // );
   document.getElementById("totalAmount").innerHTML = sumOfPrices();
 }
 
